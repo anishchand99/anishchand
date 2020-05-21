@@ -1,0 +1,23 @@
+let introTextElem = document.querySelector('.introScreenHTMLCode');
+let mainTextElem = document.querySelector('.mainScreenHTMLCode');
+let resultsTextElem = document.querySelector('.resultsScreenHTMLCode');
+let domElem = document.querySelector('.domElem');
+let fetchJSElem = document.querySelector('.fetchJS');
+let categ = document.querySelector('.categ');
+let startQuizElem = document.querySelector('.startQuiz');
+let shuffleElem = document.querySelector('.shuffle');
+let checkElem = document.querySelector('.check');
+let scoreElem = document.querySelector('.score');
+let resultsElem = document.querySelector('.results');
+
+introTextElem.textContent = introScreenHTML;
+mainTextElem.textContent = mainScreenHTML;
+resultsTextElem.textContent = resultsScreenHTML;
+domElem.textContent = domElements;
+fetchJSElem.textContent = fetchJS;
+categ.textContent += categories;
+startQuizElem.textContent = startQuiz;
+shuffleElem.textContent = shuffle;
+checkElem.textContent = check;
+scoreElem.textContent = score;
+resultsElem.textContent = results;

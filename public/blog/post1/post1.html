@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Generating SSH Keys
+    </title>
+    <link rel="stylesheet" type="text/css"  href="post1_styles.css">          
+</head>
+<body>
+    <div class="container">
+        <nav id ='top-navbar'>
+            <ul>
+                <div class="name"><h1>Anish Chand</h1></div>
+                <li><a href = '../../index.html'>Home</a></li>
+            </ul>
+        </nav>
+        <div class = 'intro'>
+            <h1 class ="title"> Generating SSH Keys For Passwordless Login </h1>
+            <div class="author-info">
+                <div>By Anish Chand</div>
+                <div>Feb 6, 2020</div>
+            </div>
+            <img class='title-image' src='images/title-image.jpg'>
+        </div>
+        <div class="blog-container">
+            <div class="links">
+                <a href="https://github.com/anishchand99"><img class="link-img" src="../../images/github-logo.png"></a>
+                <a href="https://www.linkedin.com/in/anish-chand/"><img class="link-img" src="../../images/linkedin.png"></a>
+            </div>
+            <div class="blog-content">
+                <h3>This article is going to talk about setting up ssh keys for remote login whether it is to a server or a raspberry pi. 
+                    I am going to show the steps to generate these keys and the motivation behind this.</h3>
+                    <br>
+                <h3>Overview</h3>
+                <br>
+                <ul>
+                    <li class = 'unorder'> Why Passwordless? </li>
+                    <li class = 'unorder'> Public Key Cryptography: How it works?</li>
+                    <li class = 'unorder'> Generating Keys </li>
+                </ul>
+                <br>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/password.jpg" alt='Forget my password?' >
+                    <p class='caption'> There are many benefits of passwordless login.</p>
+                </div>    
+                <h3>Why Passwordless?</h3>
+                <p>
+                    Recently, I found out that an automated system was targeting my server and attempting to login to the server. The automated system was
+                    trying to bruteforce the password and trying to login to the server. Depending on the complexity of the password used, the time taken to crack the
+                    password varies. If you don't pay much attention, in a device like raspberry pi anyone can gain access of your pi, if you use the default credentials provided.
+                    If you setup a passwordless login, the private key stored in your computer is used to authenticate you against the public key stored in the server. This greatly 
+                    increases the security and is something that you should seriously consider over password ssh login.
+                </p>
+                <br>                
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/pub-key.svg">
+                    <p class='caption'> The public key encrypts a message and the private key decrypts the encrypted message.</p>
+                </div>
+
+                <h3>Public Key Cryptography: How it works?</h3>
+                <p>
+                    Before generating the actual keys, let's take a look at how this authentication really works. Note that this process in detail is very complex and there is an 
+                    entire field of Computer Science and Mathematics regarding this called Cryptography. I am just going to provide an overview. To establish a secure system, you need to 
+                    lock in such a way that only you or the trusted users have the key to the lock. Think of your house for example. You lock the house and only you and your family have 
+                    the key. Everyone needs the same key to open the lock. This is called symmetric-key cryptography. But what if there was only a single key and you need to give 
+                    it to someone to access your house. Unless you personally deliver the key, you cannot ensure that the key will not be misplaced or fall into the hands of a 
+                    bad guy. If you do not have a safe medium to exchange keys, then the security of the system is compromised massively. This led to the idea of public key 
+                    cryptography.
+                </p>
+                <br>
+                <p>
+                    Public key cryptography relies on the modular arithmetic to ensure security. It is unique in such a way that the keys do not need to be exchanged to open the lock.
+                    There is a public key and a private key: the public key is known to everyone and the private is known only to you. Your friend would send you a message using your
+                    public key and you would decrypt it using your private key. An analogy that can be easier to understand is thinking about your mailbox as your public key and your
+                    mailbox key as your private key. Due to the property of modular arithmetic, any message encrypted by your public key can be decrypted by your private key. The
+                    typical length of RSA(an algorithm used to generate such keys) keys is 1024 bit to 4096 bits which is extremely difficult to crack. Hence, the safety is ensured. 
+                </p>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/rsa.png">
+                    <p class='caption'> Generating the keys</p>
+                </div>
+                <h3>Generating Keys</h3>
+                <p> 
+                    Now we get to the part where we actually generate these keys.
+                    <ol class = 'steps'>
+                        <li> Open the terminal application (command line) depending on the platform you are on. </li>
+                        <li> Type the following command: ssh-keygen -o -b 4096
+                        <div class = 'cmd'>ssh-keygen -o -b 4096</div>
+                        <li> You will be asked the file in which to save the key. The default will be in your Users/you/.ssh/ folder as id_rsa </li>
+                        <div class = 'cmd'>Enter file in which to save the key (/root/.ssh/id_rsa):</div>
+                        <li> Next step is not necessary but helps in additional security if the machine is compromised. Type a passphrase and again to confirm it. </li>
+                        <div class = 'cmd'>Enter passphrase (empty for no passphrase):</div>
+                        <li> This algorithm generates two keys in the default folder :/Users/you/.ssh/. The public key is named id_rsa.pub and the private key is id_rsa.</li>
+                        <div class = 'cmd'>Your public key has been saved in /root/.ssh/id_rsa.pub.</div>
+                        <li> You can cat "filename" to view the keys. </li>
+                        <div class = 'cmd'>cat id_rsa<br>cat id_rsa.pub</div>
+                    </ol>
+                </p>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/pair.jpg">
+                    <p class='caption'> The private and public key fit together for succesful authentication.</p>
+                </div>                
+                <h3>Conclusion</h3>
+                <p>
+                    After generating the keys, all that is needed to do is add the public key to the server for the user. The private and public  key needed to 'fit together' to ensure
+                    successful authentication. This will ensure that the public and private keys are being used for ssh. You can remove the password authentication in the
+                     /etc/ssh/sshd_config file. All that is needed is to uncomment the second saying PasswordAuthentication.
+                    <br>
+                    <div class='cmd'>
+                    # Change to no to disable tunnelled clear text passwords
+                    <br>
+                    #PasswordAuthentication no
+                    </div>
+                </p>
+                <p>
+                    THAT'S IT! Now you can use passwordless authentication. Hope that was useful!
+                </p>    
+                <hr>
+                <div class = 'author'>
+                    <img src='../../images/anish.JPG'>
+                    <div class="author-end">
+                        <h3>Written By</h3>
+                        <h4>Anish Chand</h4>
+                        <span>CS Undergrad</span>    
+                    </div>
+                </div>
+            </div>
+            <div class="cool-nav"></div>      
+        </div>
+        <script src= '../../script.js'></script>
+</body>
+</html>

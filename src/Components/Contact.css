@@ -1,0 +1,90 @@
+@font-face {
+  font-family: AbrilFatface;
+  src: url('../fonts/AbrilFatface-Regular.ttf');
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url('../fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+  font-family: RalewayBlack;
+  src: url('../fonts/Raleway-Black.ttf');
+}
+.contact {
+  box-sizing: border-box;
+  height: 80vh;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: RalewayBlack;
+  font-size: 1.5rem;
+}
+.contact-header {
+  box-sizing: border-box;
+  font-size: 2.5rem;
+  font-family: MontserratBold;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  letter-spacing: 3px;
+  color: rgb(75, 2, 124);
+  text-align: left;
+}
+.logoImage {
+  margin-left: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+.logoImage:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.displayFlex {
+  box-sizing: border-box;
+  display: flex;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+}
+.logo {
+  margin: 0.2rem;
+}
+.details {
+  margin: 0.2rem;
+  margin-left: 1rem;
+}
+.contact a {
+  text-decoration: none;
+  color: #333;
+}
+@media only screen and (max-width: 500px) {
+  .contact {
+    font-size: 1rem;
+  }
+  .contact-header {
+    font-size: 2rem;
+  }
+  .displayFlex {
+    box-sizing: border-box;
+    display: flex;
+    padding: 0.5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #333;
+    width: 80vw;
+  }
+  .logo {
+    margin: 0rem;
+    width: 30%;
+  }
+  .details {
+    margin: 0rem;
+    margin-left: 0.2rem;
+  }
+  .logo img {
+    margin: 0;
+    padding: 0;
+  }
+}

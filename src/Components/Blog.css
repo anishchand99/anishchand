@@ -1,0 +1,94 @@
+@font-face {
+  font-family: AbrilFatface;
+  src: url('../fonts/AbrilFatface-Regular.ttf');
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url('../fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+  font-family: RalewayBlack;
+  src: url('../fonts/Raleway-Black.ttf');
+}
+.blog {
+  height: 80vh;
+  width: 100%;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: MontserratBold;
+}
+.blog-header {
+  box-sizing: border-box;
+  font-size: 3rem;
+  font-family: MontserratBold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  letter-spacing: 3px;
+  color: #ec6367;
+  text-align: left;
+}
+.article-container {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  text-align: start;
+}
+.carousel {
+  box-sizing: border-box;
+  display: block;
+  width: 50vw;
+  height: 80vh;
+  overflow-x: scroll;
+  padding: 1rem;
+  margin: 0;
+  white-space: nowrap;
+}
+.article {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+article {
+  white-space: initial;
+  box-sizing: border-box;
+  width: 40vw;
+  margin: 10px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333;
+  border-radius: 5px;
+  box-shadow: 5px 10px #888888;
+  padding: 5px;
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+.blog a {
+  text-decoration: none;
+  color: #333;
+}
+@media (max-width: 1000px) {
+  .carousel {
+    width: 100vw;
+    height: 80vh;
+  }
+  article {
+    width: 70vw;
+    height: 250px;
+  }
+}
+article:hover {
+  transform: scale(1.05);
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}

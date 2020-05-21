@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Simplifica;
+  src: url('../fonts/Simplifica.ttf');
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url('../fonts/Montserrat-Bold.ttf');
+}
+@font-face {
+  font-family: RalewayBlack;
+  src: url('../fonts/Raleway-Black.ttf');
+}
+.name {
+  width: 95%;
+  margin: 0 auto;
+  height: 60vh;
+  color: rgb(75, 2, 124);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.25);
+}
+.summary-animate {
+  animation: fadein 2s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.summary {
+  display: flex;
+  text-align: start;
+}
+.name h1 {
+  font-family: RalewayBlack;
+  text-align: left;
+  opacity: 1;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.4rem;
+}
+@media only screen and (min-width: 870px) {
+  h1 {
+    font-size: 3.5rem;
+    font-family: 'RalewayBlack';
+    letter-spacing: 10px;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .name h1 {
+    font-size: 2rem;
+    font-family: 'RalewayBlack';
+    letter-spacing: 0px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .name {
+    height: 100vh;
+  }
+  .description-left {
+    letter-spacing: 0;
+  }
+  .description-left li {
+    font-size: 1rem;
+  }
+}
+
+.description-left {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-shadow: none;
+  font-family: Simplifica;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}

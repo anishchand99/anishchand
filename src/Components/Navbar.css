@@ -1,0 +1,29 @@
+@font-face {
+  font-family: PoppinsRegular;
+  src: url('../fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: MontserratBold;
+  src: url('../fonts/Montserrat-Bold.ttf');
+}
+.navBar {
+  box-sizing: border-box;
+  font-family: 'PoppinsRegular';
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #000;
+  width: 100%;
+  padding: 1rem;
+}
+.navBar span:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  .navBar {
+    font-size: 0.8rem;
+  }
+}

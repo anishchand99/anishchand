@@ -1,0 +1,22 @@
+.sliderNumber {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  z-index: +1;
+  color: rgb(75, 2, 124);
+  font-size: 55px;
+}
+.arrow {
+  transition: transform 0.8s ease;
+}
+.arrow:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+@media only screen and (max-width: 400px) {
+  .arrow:hover {
+    cursor: pointer;
+    transform: scale(1);
+  }
+}

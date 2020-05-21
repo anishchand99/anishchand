@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Simplifica;
+  src: url('../fonts/Simplifica.ttf');
+}
+.footer-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  grid-column-start: span 4;
+  height: 10vh;
+  font-family: 'Simplifica';
+  color: #000;
+}
+.footer-container .logo {
+  margin-right: 25px;
+}
+.footer-container .copy {
+  margin-right: auto;
+  margin-left: 2rem;
+}
