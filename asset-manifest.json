@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/anishchand/static/css/main.185866ef.chunk.css",
+    "main.js": "/anishchand/static/js/main.7da5b55d.chunk.js",
+    "main.js.map": "/anishchand/static/js/main.7da5b55d.chunk.js.map",
+    "runtime-main.js": "/anishchand/static/js/runtime-main.2a8623e5.js",
+    "runtime-main.js.map": "/anishchand/static/js/runtime-main.2a8623e5.js.map",
+    "static/js/2.b45437a7.chunk.js": "/anishchand/static/js/2.b45437a7.chunk.js",
+    "static/js/2.b45437a7.chunk.js.map": "/anishchand/static/js/2.b45437a7.chunk.js.map",
+    "index.html": "/anishchand/index.html",
+    "precache-manifest.5fccd5a57a0029496b93f56494c240fe.js": "/anishchand/precache-manifest.5fccd5a57a0029496b93f56494c240fe.js",
+    "service-worker.js": "/anishchand/service-worker.js",
+    "static/css/main.185866ef.chunk.css.map": "/anishchand/static/css/main.185866ef.chunk.css.map",
+    "static/media/Contact.css": "/anishchand/static/media/Raleway-Black.46818ebd.ttf",
+    "static/media/Resume.css": "/anishchand/static/media/Raleway-Regular.9942588a.ttf",
+    "static/media/Footer.css": "/anishchand/static/media/Simplifica.22dd36f6.ttf",
+    "static/media/back-color.png": "/anishchand/static/media/back-color.abf90bba.png",
+    "static/media/backgen.mp4": "/anishchand/static/media/backgen.2701b7d7.mp4",
+    "static/media/bot.png": "/anishchand/static/media/bot.5fa781aa.png",
+    "static/media/camera.png": "/anishchand/static/media/camera.da91470c.png",
+    "static/media/faceDetect.mp4": "/anishchand/static/media/faceDetect.f8d67a5e.mp4",
+    "static/media/face_detect-clear.png": "/anishchand/static/media/face_detect-clear.a2546a1e.png",
+    "static/media/job-track.mp4": "/anishchand/static/media/job-track.c3206ad4.mp4",
+    "static/media/job.jpg": "/anishchand/static/media/job.a53828d3.jpg",
+    "static/media/path.png": "/anishchand/static/media/path.c574b77c.png",
+    "static/media/pathfinder.mp4": "/anishchand/static/media/pathfinder.118f43b8.mp4",
+    "static/media/profile.jpg": "/anishchand/static/media/profile.67be7246.jpg",
+    "static/media/quiz.png": "/anishchand/static/media/quiz.5ec1dbae.png",
+    "static/media/trivia.mp4": "/anishchand/static/media/trivia.b73e454a.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a8623e5.js",
+    "static/js/2.b45437a7.chunk.js",
+    "static/css/main.185866ef.chunk.css",
+    "static/js/main.7da5b55d.chunk.js"
+  ]
+}

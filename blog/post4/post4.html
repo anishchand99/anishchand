@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Building A Full Stack Web Application
+    </title>
+    <link rel="stylesheet" type="text/css"  href="post4_styles.css">          
+</head>
+<body>
+    <div class="container">
+        <nav id ='top-navbar'>
+            <ul>
+                <div class="name"><h1>Anish Chand</h1></div>
+                <li><a href = '../../index.html'>Home</a></li>
+            </ul>
+        </nav>
+        <div class = 'intro'>
+            <h1 class ="title">Building A Full Stack Web Application</h1>
+            <div class="author-info">
+                <div>By Anish Chand</div>
+                <div>Mar 23, 2020</div>
+            </div>
+            <img class='title-image' src='images/title-image-text.jpg'>
+        </div>
+        <div class="blog-container">
+            <div class="links">
+                <a href="https://github.com/anishchand99" target="_blank"><img class="link-img" src="../../images/github-logo.png"></a>
+                <a href="https://www.linkedin.com/in/anish-chand/" target="_blank"><img class="link-img" src="../../images/linkedin.png"></a>
+            </div>
+            <div class="blog-content">
+                <h3>This article is an introductory article to talk about my next project: <i>A Job Applicaiton Tracker</i>.
+                </h3>
+                    <br>
+                <h3>Overview</h3>
+                <br>
+                <ul>
+                    <li class = 'unorder'> What is it? </li>
+                    <li class = 'unorder'> Motivation </li>
+                    <li class = 'unorder'> Tentative Features </li>
+                </ul>
+                <br>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/job-search.jpg" alt='Forget my password?' >
+                    <p class='caption'> Job Hunting can be stressful. Tracking jobs effectively helps lessen the stress.</p>
+                </div>    
+                <h3>What is it?</h3>
+                <p>
+                        I will be building a job tracking application that will help to keep track of all the jobs that a user has applied to. Looking at some
+                        of the popular websites like reddit, the most popular choice to keep lists of job applications is excel spreadsheets. While this works,
+                        my goal is to make a website that is tailor-made for the purpose of job application tracking.
+                </p>
+                <br>                
+                <h3>Motivation</h3>
+                <p>
+                    Applying to jobs is a tedious task. You have to apply to a lot job posts through various websites. While websites like LinkedIn make it easier 
+                    by storing the applied jobs, a user may use a lot of different websites to apply and can lose track of the platform he/she used for applying 
+                    to a certain job. I want to create an application that keeps track of all these job applications in a single place. Furthermore, I want to make it
+                    possible to generate certain statisitcs that might help to visulize the job application process thus far. For example, stats to see the rejection rate,
+                    success rate, interview rate, and so on. The user base for this application would be people looking to find jobs and applying to jobs. 
+                </p>
+                <br>
+                <h3>Tentative Features</h3>
+                <p> 
+                    The application will have options to add jobs and keeps track of the date applied, the name of the company, the URL of the job post, 
+                    job description, tech stack required for the job, any special requirements (like security clearance, sponsorship, citizenship), any 
+                    additional comments that they would like to add. Similarly, there would be an option to upload and reference the resume version that 
+                    they uploaded for the job post. Also, users can add their progress like heard back from the company, got an interview, got an offer, and 
+                    so on which will be used to calculate the overall statistics of the job search process.
+                </p>
+                <p>
+                    The application will be built using the PERN stack. The frontend will be built using React and CSS. If I can find some interesting and 
+                    useful react components that can be fitting in the projects, I will make use of it. The backend of the project will be made using Node.js 
+                    with Express. The database used will be PostgreSQL. The database will be required to have a table dealing with user authentication. 
+                    The table would store the name, email, and hash of the password at the minimum. The other tables would be dealing with job 
+                    applications storage using an effective schema. The frontend will have a dashboard that will give users option to add jobs and add 
+                    features related to job application like date applied and similar others explained above. The backend will have several API endpoints 
+                    dealing with signup, sign in, and profile at the minimum.
+                </p>
+                <p>
+                    That's all for now. This is just pitching the idea for the next project. In the coming weeks, I will be updating the blog post to document the
+                    progess of this application.
+                </p>    
+                <hr>
+                <div class = 'author'>
+                    <img src='../../images/anish.JPG'>
+                    <div class="author-end">
+                        <h3>Written By</h3>
+                        <h4>Anish Chand</h4>
+                        <span>CS Undergrad</span>    
+                    </div>
+                </div>
+            </div>
+            <div class="cool-nav"></div>      
+        </div>
+        <script src= '../../script.js'></script>
+        <script src='../post3/scripts/constants.js'></script>
+        <script src= '../post3/scripts/script.js'></script>
+</body>
+</html>

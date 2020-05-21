@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Making a Background Generator
+    </title>
+    <link rel="stylesheet" type="text/css"  href="post2_styles.css">          
+</head>
+<body>
+    <div class="container">
+        <nav id ='top-navbar'>
+            <ul>
+                <div class="name"><h1>Anish Chand</h1></div>
+                <li><a href = '../../index.html'>Home</a></li>
+            </ul>
+        </nav>
+        <div class = 'intro'>
+            <h1 class ="title"> Creating a Simple Background Color Generator App </h1>
+            <div class="author-info">
+                <div>By Anish Chand</div>
+                <div>Feb 29, 2020</div>
+            </div>
+            <img class='title-image' src='images/title-image-text.jpg'>
+        </div>
+        <div class="blog-container">
+            <div class="links">
+                <a href="https://github.com/anishchand99" target="_blank"><img class="link-img" src="../../images/github-logo.png"></a>
+                <a href="https://www.linkedin.com/in/anish-chand/" target="_blank"><img class="link-img" src="../../images/linkedin.png"></a>
+            </div>
+            <div class="blog-content">
+                <h3>This article is going walkthrough the steps necessary to create a simple background application generator. The application 
+                    will be able to show the selected colors as the background in real time. It also has implementation of random color generation.
+                </h3>
+                    <br>
+                <h3>Overview</h3>
+                <br>
+                <ul>
+                    <li class = 'unorder'> What is it? </li>
+                    <li class = 'unorder'> The HTML and CSS </li>
+                    <li class = 'unorder'> The JavaScript </li>
+                </ul>
+                <br>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/home.png" alt='Forget my password?' >
+                    <p class='caption'> The Final Product.</p>
+                </div>    
+                <h3>What is it?</h3>
+                <p>
+                        As show in the image above, the end product is going to be a simple app that can generate the background based on the given
+                        colors and filters. The colors can be chosen by the user or generated at random by clicking the random button. The other choice is
+                        to select the background type if it is going to be a single colored, radial-gradient or linear-gradient. Similary, the number of images
+                        can be selected. The maximum limit is going to be three in this case because I think more colors than necessary can get ugly quickly.
+                </p>
+                <br>                
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/mockup.png">
+                    <p class='caption'> HTML and CSS  will make it look something like this.</p>
+                </div>
+
+                <h3>The HTML and the CSS</h3>
+                <p>
+                        As always, through the HTML portion, the main focus is going to be on what elements to place on the page and how to structure 
+                        the elements. I made a quick rough mock design of the HTML version of the page that I want. One could make this way more detailed
+                        using something like figma but I chose to save time as the UI elements are rather straightforward in this case. The main point of the
+                        HTML portion would be to include a 'Type' selection that includes <i>'single', 'linear-gradient',</i> or <i>'radial-gradient'</i>. The other major point 
+                        would be to add colors as input type and the current background css property. I also plan to implement a hide button that is in a class
+                        of itself seperated from the rest so that it can hide the other elements to make the background more visible if need be.
+                        The main points to notice would be the <strong><em>getBackgroundType()</em></strong> function triggered on the onchange 
+                        property and <strong><em>getColorCount()</em></strong> function on select and input tags respectively. There is also a 
+                        <strong><em>hideAll()</em></strong> function on our div element to hide elements as discussed earlier.
+                </p>
+                <br>
+                <p id = 'html-overflow'>
+                    &lt;body id = "container"&gt; <br>
+                    &lt;div class="visible" onclick="hideAll()"&gt;<br>
+                        Hide <br>
+                    &lt;/div&gt;<br>
+                    &lt;div class="hide"&gt;<br>
+                        &lt;div class="filter"&gt;<br>
+                            &lt;select id = 'background-type' onchange="getBackgroundType()"&gt;<br>
+                                &lt;option value='linear-gradient'&gt;Linear-gradient&lt;/option&gt;<br>
+                                &lt;option value='single'&gt;Single&lt;/option&gt;<br>
+                                &lt;option value='radial-gradient'&gt;Radial-gradient&lt;/option&gt;<br>
+                            &lt;/select&gt;<br>
+                            &lt;label for="color-count"&gt;Color Count:&nbsp;&lt;/label&gt;<br>
+                            &lt;input type="number" min='1' max= '3' value='3'  id = 'color-count' placeholder="  number of colors" onchange="getColorCount()"&gt;
+                        &lt;/div&gt;<br>
+                        &lt;h1 class = "heading"&gt;BACKGROUND GENERATOR&lt;/h1&gt;<br>
+                        &lt;h5&gt; SELECT COLOR &lt;/h5&gt;<br>
+                        &lt;div class = "buttons"&gt;<br>
+                            &lt;input class= "color1" type="color" name = "color1" value = "#cc95c0"/&gt;<br>
+                            &lt;input class= "color2" type="color" name="color2" value = "#dbd4b4"/&gt;<br>
+                            &lt;input class= "color3" type="color" name="color3" value = "#7aa1d2"/&gt;<br>
+                        &lt;/div&gt;<br>
+                        &lt;h2&gt; CURRENT CSS BACKGROUND &lt;/h2&gt;<br>
+                        &lt;h3&gt;&lt;/h3&gt;<br>
+                        &lt;button class="random" type="button"&gt;Random&lt;/button&gt;<br>	
+                    &lt;/div&gt;<br>
+                    &lt;script type="text/javascript" src="./script/script.js"&gt;&lt;/script&gt;<br>
+                &lt;/body&gt;<br>
+                </p>
+                <br>
+
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/html.png">
+                    <p class='caption'> With HTML and no CSS, the page so far should look similar</p>
+                </div>
+
+                <p>
+                        The CSS is going to be about making the page attractive and responsive. This can be achieved in many number of ways. 
+                        The CSS is going to be pretty straightforward in this case and is self-explanatory. The CSS file can be found on this project's
+                        github repo along with other necessary files. With CSS, the page would somethinglike shown in the following image. But without
+                        JavaScript, it does not do anything.
+                </p>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/css.png">
+                    <p class='caption'> With CSS implemented the HTML should look similar to this</p>
+                </div>
+                <h3>The JavaScript</h3>
+                <p> 
+                    Now, we get to the main part of making this page work as desired. For this, we need to implement the JavaScript.
+                    <ol class = 'steps'>
+                        <li> First, we get a get a reference of all the dom elements that we will need and store them. Variable colorCount will give the number of
+                            specified colors in the input box. As set by the HTML, this number is minimum '1' and maximum '3'. Variable backgroundType will store
+                            the type of the background specified. The color elements are stored as color variables. Similarly, the header elements are selected
+                            to show the change in the background property later on. We indicate a boolean 'hidden' variable to store if the elements are currently hidden. 
+                        </li>
+                        <p id = 'html-overflow'>
+                            //get the color count and store it in the colorCount variable<br>
+                            let colorInput = document.getElementById('color-count');<br>
+                            let colorCount = colorInput.value;<br>
+                            //get the background type<br>
+                            let backgroundElement = document.getElementById('background-type');<br>
+                            let backgroundType = backgroundElement.value;<br>
+                            //colors<br>
+                            let color1 = document.querySelector(".color1");<br>
+                            let color2 = document.querySelector(".color2");<br>
+                            let color3 = document.querySelector(".color3");<br>
+                            let body = document.getElementById("container");<br>
+                            let random = document.querySelector(".random");<br>
+                            let css_text = document.querySelector("h3");<br>
+                            css_text.textContent = `${backgroundType}(to right, ${color1.value}, ${color2.value}, ${color3.value})`;<br>
+                            //hide all elements?<br>
+                            let hidden = false;<br>
+                        </p>    
+                        <li> The next step would be to implement the event listeners for the color elements. Whenever, we select a new color on the color 'input' 
+                            elements, we want the color of the page to change. So we need to add event listeners to detect the input of a color. We have to implement
+                            a function that gets triggered when a new color is input. In our case we implement a function that will call a setGradient() function that is not
+                            implemented yet. The set gradient method will accept the 'backgroundType', and 'color.value' as the arguments and change the background
+                            of the page. Also, add an event listener fo the random button. We want to invoke the function 'changeRandom' on 'click' event.</li>
+                        <p id = 'html-overflow'>
+                            color1.addEventListener("input", function(){<br>
+                                setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                            });<br>
+                            color2.addEventListener("input", function(){<br>
+                                setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                            });<br>
+                            color3.addEventListener("input", function(){<br>
+                                setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                            });<br>
+                            random.addEventListener("click", changeRandom);<br>
+                        </p>                                
+                        <li>
+                            Now, we implement the function that gets us the color count. If the count of the color has increased, it adds color elements. If
+                            the count of the color has decreased, it decreases the color elements. For this method, we keep it simple and check if the backgroundType
+                            is single or not. If it is single then we only have one color element and one color count. This will be taken care by the removeAllColors() function.
+                            If the color value has incremented, say from '2' to '3' then we need to create a new 'input element' and assign the properties that we had 
+                            previously assigned in the HTML file. For this we select the div element housing the input elements. We want to select the parent as ".buttons"
+                            div element. We need to create a new input element that we will then append to the parent. 
+                            <div class="cmd">
+                                let buttons = document.querySelector(".buttons");<br>
+                                let input = document.createElement("input");<br>
+                                input.className = "color" + colorCount; // set the CSS class<br>
+                                input.type = "color";<br>
+                                input.name = 'color' + colorCount;<br>
+                                input.value = '#cc95c0';<br>
+                            </div>
+                            After this we need to again add the event listener to the new input element as we did previously.
+                            <div class="cmd">
+                                input.addEventListener("input", function(){<br>
+                                    setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                                });<br>
+                            </div>
+                                Then, we need to append the child to its parent. We append the newly created input element to the parent div.
+                            <div class="cmd">
+                                buttons.appendChild(input);<br>
+                                //add event listeners to the colors<br>
+                            </div>
+                            The final step would be to assign the new input elements to the existing variables 'color1' and 'color2' to get the reference. We
+                            do a simple conditional check to make sure that we only overwrite the variable when the value we get is actually a DOM element
+                            and not null. 
+                            <div class="cmd">
+                                if(document.querySelector('.color1') !== null){<br>
+                                    color1 = document.querySelector(".color1");<br>
+                                }<br>
+                                if(document.querySelector('.color2') !== null){<br>
+                                    color2 = document.querySelector(".color2");<br>
+                                }	<br>
+                            </div>
+                            Now, we need to handle the case if the color count has decreased. In this case, we remove the element similar to add element. 
+                            The difference being we use removeChild() function as opposed to the appendChild().
+                            <div class="cmd">
+                                else if(currentColor < colorCount){<br>
+                                    //if the color count is decremented, remove the color elements<br>
+                                    let buttons = document.querySelector(".buttons");<br>
+                                    let childToRemove = document.querySelector(`.color${currentColor}`);<br>
+                                    if(childToRemove !== null){<br>
+                                        buttons.removeChild(childToRemove);<br>
+                                    }<br>
+                                }<br>
+                            </div>
+                            Finally, we update the value of the colorCount variable. Similarly, we handle the case of when the backgroundType is 'single' by
+                            calling the 'removeAllColors()' function.
+                            <div class="cmd">
+                                //update the color count<br>
+                                colorCount = colorInput.value;<br>
+                                }<br>
+                                else{<br>
+                                    //if it is single, only keep one color<br>
+                                    removeAllColors();<br>
+                                }<br>
+                            </div>  
+                            The final look at the getColorCount() method:                       
+                        </li>
+                        <p id = 'html-overflow'>
+                            const getColorCount = () => {<br>
+                                //if background type is not single<br>
+                                if(backgroundType !== 'single'){<br>
+                                    //get the current color value<br>
+                                    currentColor = colorInput.value;<br>
+                                    //if the color value is incremented<br>
+                                    if(currentColor >= colorCount){<br>
+                                        //add the color elements to the DOM<br>
+                                        let buttons = document.querySelector(".buttons");<br>
+                                        let input = document.createElement("input");<br>
+                                        input.className = "color" + colorCount; // set the CSS class<br>
+                                        input.type = "color";<br>
+                                        input.name = 'color' + colorCount;<br>
+                                        input.value = '#cc95c0';<br>
+                                        input.addEventListener("input", function(){<br>
+                                            setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                                        });<br>
+                                        buttons.appendChild(input);<br>
+                                        //add event listeners to the colors<br>
+                                        if(document.querySelector('.color1') !== null){<br>
+                                            color1 = document.querySelector(".color1");<br>
+                                        }<br>
+                                        if(document.querySelector('.color2') !== null){<br>
+                                            color2 = document.querySelector(".color2");<br>
+                                        }	<br>
+                                    } else if(currentColor < colorCount){<br>
+                                        //if the color count is decremented, remove the color elements<br>
+                                        let buttons = document.querySelector(".buttons");<br>
+                                        let childToRemove = document.querySelector(`.color${currentColor}`);<br>
+                                        if(childToRemove !== null){<br>
+                                            buttons.removeChild(childToRemove);<br>
+                                        }<br>
+                                    }<br>
+                                    //update the color count<br>
+                                    colorCount = colorInput.value;<br>
+                                }<br>
+                                else{<br>
+                                    //if it is single, only keep one color<br>
+                                    removeAllColors();<br>
+                                }<br>
+                            }<br>
+                        </p>
+                        <li>Now, we need to implement the removeAllColors() function. To do this, all we need to do is set the colorCount to '1' and
+                            remove two color elements 'color1' and 'color2'. That way, on single-colored background we have one color input and one color count.
+                        </li>
+                        <p id="html-overflow">
+                            const removeAllColors = () => {<br>
+                                colorCount = 1;<br>
+                                colorInput.value = 1;<br>
+                                let buttons = document.querySelector(".buttons");<br>
+                                let childToRemove1 = document.querySelector('.color2');<br>
+                                let childToRemove2 = document.querySelector('.color1');<br>
+                                if(childToRemove1 !== null){<br>
+                                    buttons.removeChild(childToRemove1);<br>
+                                }<br>
+                                if(childToRemove2 !== null){<br>
+                                    buttons.removeChild(childToRemove2);<br>
+                                }<br>
+                            }<br>
+                        </p>
+                        <li>
+                            We, now, implement the getBackgroundType() function which is fairly straightforward. All we need to do is get the current value of 
+                            the select element and pass the value and the color values to the set-gradient method to change the background.
+                        </li>
+                        <p id="html-overflow">
+                            //get the latest value of the background type selected<br>
+                            const getBackgroundType = () => {<br>
+                                backgroundType = backgroundElement.value;<br>
+                                setGradient(backgroundType, color1.value, color2.value, color3.value);<br>
+                            }<br>
+                        </p>
+                        <li>
+                            Now to implement the main function that is going to change the background of the page based on the given arguments.
+                            Based on the type of the background, we set the background of the page using the style.background attribute. We have to
+                            be careful if the color count is 2 or 3 and use the gradients accordinglt. For the case of single color, it is simple. After, setting the
+                            background of the page, we change the css header to reflect the current css tag of the background with the current colors.
+                        </li>
+                        <p id='html-overflow'>
+                            //set the background of the page based on the type selected<br>
+                            const setGradient = (backgroundType, color1, color2, color3) => {<br>
+                                if(backgroundType === 'linear-gradient'){<br>
+                                    if(colorCount <= 2){<br>
+                                        body.style.background = `linear-gradient(to right, ${color1}, ${color3})`;<br>
+                                        css_text.textContent = body.style.background;	<br>
+                                    }else{<br>
+                                        body.style.background = `linear-gradient(to right, ${color1}, ${color2}, ${color3})`;<br>
+                                        css_text.textContent = body.style.background;	<br>
+                                    }<br>
+                                }<br>
+                                if(backgroundType === 'radial-gradient'){<br>
+                                    if(colorCount <= 2){<br>
+                                        body.style.background = `radial-gradient(${color1}, ${color3})`;<br>
+                                        css_text.textContent = body.style.background;		<br>
+                                    }else{<br>
+                                        body.style.background = `radial-gradient(${color1}, ${color2}, ${color3})`;<br>
+                                        css_text.textContent = body.style.background;	<br>
+                                    }<br>
+                                }<br>
+                                if(backgroundType === 'single'){<br>
+                                    removeAllColors();<br>
+                                    body.style.background = `${color3}`;<br>
+                                    css_text.textContent = body.style.background;<br>
+                                }<br>
+                            }<br>
+                        </p>
+                        <li>This step is optional if you want to implement the randomize function or not. For the random background generation, we need
+                            to generate random colors and pass the colors to the setGradient() function to change the background. For the random color
+                            generation, we utilize the Math.floor() and Math.random() fucntions. Function randColor() returns a random color.
+                            <div class="cmd">
+                                const randColor = () => {<br>
+                                    let r = Math.floor(Math.random() * 255);<br>
+                                    let g = Math.floor(Math.random() * 255);<br>
+                                    let b = Math.floor(Math.random() * 255);<br>
+                                    return (`rgb(${r},${g},${b})`)<br>
+                                }<br>
+                            </div>
+                            We use the changeRandom() function triggered on random button click to pass these random colors  to the setGradient() fucntion.
+                            <div class="cmd">
+                                //generate random background<br>
+                                const changeRandom = () => {<br>
+                                    setGradient(backgroundType, randColor(), randColor(), randColor());<br>
+                                }<br>
+                            </div>
+                        </li>
+                        <p id="html-overflow">
+                            const randColor = () => {<br>
+                                let r = Math.floor(Math.random() * 255);<br>
+                                let g = Math.floor(Math.random() * 255);<br>
+                                let b = Math.floor(Math.random() * 255);<br>
+                                return (`rgb(${r},${g},${b})`)<br>
+                            }<br>
+                            <br>
+                            //generate random background<br>
+                            const changeRandom = () => {<br>
+                                setGradient(backgroundType, randColor(), randColor(), randColor());<br>
+                            }<br>
+                        </p>
+                        <li>
+                            The final function is very simple. It hides or unhides the elements on the page to clear the view to see the background more clearly.
+                            For this we make use of the div.style.visibility property.
+                        </li>
+                        <p id="html-overflow">
+                            const hideAll = () => {<br>
+                                let visualText = document.querySelector('.visible');<br>
+                                let hideElements = document.querySelector('.hide');<br>
+                                if(hidden){<br>
+                                    hideElements.style.visibility='visible';<br>
+                                    hidden = false;<br>
+                                    visualText.innerHTML= 'Hide';<br>
+                                }else{<br>
+                                    hideElements.style.visibility='hidden';<br>
+                                    hidden = true;<br>
+                                    visualText.innerHTML= 'Unhide';<br>
+                                }<br>
+                            }<br>
+                        </p>
+                        </ol>
+                </p>
+                <h3>Conclusion</h3>
+                <p>
+                    This app can be used to generate or stumble upon  a cool background especially in cases where the time is of utmost importance.
+                    You can check out the links for the repo or see the page live in action by following the links below.
+                    <br>
+                    <div class='cmd'>
+                        <a href= 'https://anishchand99.github.io/background-generator/index.html' target="_blank"> Link to the live page</a>
+                    <br>
+                        <a href= 'https://github.com/anishchand99/background-generator/' target='_blank'> Link to the github repo</a>
+                    </div>
+                </p>
+                <p>
+                    THAT'S IT! Now you can generate quick backgrounds for the webpages without having to spend a lot of time on Google.
+                </p>    
+                <hr>
+                <div class = 'author'>
+                    <img src='../../images/anish.JPG'>
+                    <div class="author-end">
+                        <h3>Written By</h3>
+                        <h4>Anish Chand</h4>
+                        <span>CS Undergrad</span>    
+                    </div>
+                </div>
+            </div>
+            <div class="cool-nav"></div>      
+        </div>
+        <script src= '../../script.js'></script>
+</body>
+</html>

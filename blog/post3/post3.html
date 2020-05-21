@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        Making a Trivia App
+    </title>
+    <link rel="stylesheet" type="text/css"  href="post3_styles.css">          
+</head>
+<body>
+    <div class="container">
+        <nav id ='top-navbar'>
+            <ul>
+                <div class="name"><h1>Anish Chand</h1></div>
+                <li><a href = '../../index.html'>Home</a></li>
+            </ul>
+        </nav>
+        <div class = 'intro'>
+            <h1 class ="title"> Creating a Trivia App Using OpenTrivia DB API </h1>
+            <div class="author-info">
+                <div>By Anish Chand</div>
+                <div>Mar 23, 2020</div>
+            </div>
+            <img class='title-image' src='images/title-image-text.jpg'>
+        </div>
+        <div class="blog-container">
+            <div class="links">
+                <a href="https://github.com/anishchand99" target="_blank"><img class="link-img" src="../../images/github-logo.png"></a>
+                <a href="https://www.linkedin.com/in/anish-chand/" target="_blank"><img class="link-img" src="../../images/linkedin.png"></a>
+            </div>
+            <div class="blog-content">
+                <h3>This article is going walkthrough the steps necessary to create a simple trivia application. The application 
+                    will be able to request question through the use of OpenTrivia DB api. it will have options to request specific categories and level of difficulty.
+                    It will keep track of the points scored and score the highest score in the browsers local storage.
+                </h3>
+                    <br>
+                <h3>Overview</h3>
+                <br>
+                <ul>
+                    <li class = 'unorder'> What is it? </li>
+                    <li class = 'unorder'> The HTML and CSS </li>
+                    <li class = 'unorder'> The JavaScript </li>
+                </ul>
+                <br>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/home.png" alt='Forget my password?' >
+                    <p class='caption'> The Final Product.</p>
+                </div>    
+                <h3>What is it?</h3>
+                <p>
+                        As show in the image above, the end product is going to be a simple app that will ask the user input for the total number of questions, 
+                        category and level of difficulty. When the user clicks on the 'Begin' button, the game begins. The question and the answers is obtained
+                        through a request to the OpenTrivia DB. Correct answer will result in points and will add to the score according to the diffculty of the 
+                        question. The questions will continue until the specified number of questions by the user is served.
+                </p>
+                <br>                
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/main.png">
+                    <p class='caption'> The 'main screen' of our app will look something like this.</p>
+                </div>
+
+                <h3>The HTML and the CSS</h3>
+                <p>
+                        As always, through the HTML portion, the main focus is going to be on what elements to place on the page and how to structure 
+                        the elements. The main point of the HTML section would be to build 'three pages' namely: the intro page, the main page and the results page.
+                        The intro page is the one where the user can use the filters to select the questions, the main page is where the game actually takes place, and
+                        the results page is the page where we display the results of the game. These pages would just be seperate blocks of HTML elements that we
+                        will dynamically display and hide depending upon the context to avoid loading of a new page everytime, somewhat like React in a way.
+                </p>
+                <br>
+                <p class = 'introScreenHTMLCode' id = 'html-overflow'></p>
+                <br>
+                <p class = 'mainScreenHTMLCode' id = 'html-overflow'></p>
+                <br>
+                <p class = 'resultsScreenHTMLCode' id = 'html-overflow'></p>
+                <br>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/html.png" border=2>
+                    <p class='caption'> With HTML and no CSS, the page so far should look similar</p>
+                </div>
+
+                <p>
+                        The CSS is going to be about making the page attractive and responsive. This can be achieved in many number of ways. 
+                        The CSS is going to be pretty straightforward in this case and is self-explanatory. The CSS file can be found on this project's
+                        github repo along with other necessary files. With CSS, the page would somethinglike shown in the following image. But without
+                        JavaScript, it does not do anything.
+                </p>
+                <div class = 'img-container'>
+                    <img class = 'blog-pic' src="images/css.png">
+                    <p class='caption'> With CSS implemented the HTML should look similar to this</p>
+                </div>
+                <h3>The JavaScript</h3>
+                <p> 
+                    Now, we get to the main part of making this page work as desired. For this, we need to implement the JavaScript.
+                    <ol class = 'steps'>
+                        <li> First, we get a get a reference of all the dom elements that we will need and store them. Variable questionCount will give the number of
+                            specified questions in the input box. As set by the HTML, this number is minimum '1'. Variable categoryType will store
+                            the type of the category specified for the question. The difficulyLevel will store the selected difficulty level. Similarly, the necessary elements
+                            like text elements and divs that are necessary are referenced as well. 
+                        </li>
+                        <p class = 'domElem' id = 'html-overflow'>
+                        </p>    
+                        <li> The most important step is to make the request. We make use of the fetch api to send the request and use promise to receive the data.
+                            We store the url in the <b>request</b> variable. The categories are replaced by the corresponding numbers. We fetch to the given url.
+                            We get back the promise which we convert into json using <b>.json()</b> method. We access the results of the res.json() to get access to
+                            question and answers.
+                        </li>
+                        <p id = 'html-overflow' class='categ'>request = https://opentdb.com/api.php?amount=1&category=${categoryType}&difficulty=${difficultyLevel}&type=multiple
+                            
+                            This uses template string to determine the category type and difficulty level as chosen by user.
+                            In case of a random category or difficulty is chosen the values will be empty so any random 
+                            topic is requested. The category code is as follows specified by the api:
+                        </p>
+                        <p class ='fetchJS' id = 'html-overflow'>
+                        </p> 
+                        <li>
+                            Now, we implement the function that takes care of the starting of the quiz. 
+                        </li>    
+                        <p class="startQuiz" id ='html-overflow'></p>
+                        <li>
+                            Now, we need to take care of placing choices randomly. The api provdies the correct answer and other 3 incorrect choices.
+                            We provide these options to a shuffle method to ensure every time the corrrect answer is placed in a different position. 
+                        </li>
+                        <p class="shuffle" id ='html-overflow'></p>
+                        <li>
+                            Whenever an option is clicked, we need to check the answer using the onclick property of the button. Also, we need to disable
+                            the buttons to avoid multiple attempts.
+                        </li>
+                        <p class="check" id ='html-overflow'></p><li>
+                            We need to score the correct answers and make sure the next button works properly. 
+                        </li>
+                        <p class="score" id ='html-overflow'></p><li>
+                            Finally, we take care of the results screen once the quiz ends.
+                        </li>
+                        <p class="results" id ='html-overflow'></p>
+                <h3>Conclusion</h3>
+                <p>
+                    This app can be used to generate trivia questions and can be used to learn something and at the same time have fun. Challenge
+                    your friends to a trivia competition.
+                    <br>
+                    <div class='cmd'>
+                        <a href= 'https://anishchand99.github.io/TriviaApp/index.html' target="_blank"> Link to the live page</a>
+                    <br>
+                        <a href= 'https://github.com/anishchand99/TriviaApp' target='_blank'> Link to the github repo</a>
+                    </div>
+                </p>
+                <p>
+                    THAT'S IT! Now you can generate quick trivia questions of your choice without having to spend too much time searching for them
+                    in different places.
+                </p>    
+                <hr>
+                <div class = 'author'>
+                    <img src='../../images/anish.JPG'>
+                    <div class="author-end">
+                        <h3>Written By</h3>
+                        <h4>Anish Chand</h4>
+                        <span>CS Undergrad</span>    
+                    </div>
+                </div>
+            </div>
+            <div class="cool-nav"></div>      
+        </div>
+        <script src= '../../script.js'></script>
+        <script src='../post3/scripts/constants.js'></script>
+        <script src= '../post3/scripts/script.js'></script>
+</body>
+</html>
