@@ -181,7 +181,7 @@ export const resumeConstant = [
         </li>
         <li>
           Ability to visualize the statistics of job applications including
-          approved, pending, removed and total applicaitions per day.
+          approved, pending, removed and total applications per day.
         </li>
         <li>Built using React, Node.js, Express and PostgreSQL.</li>
       </ul>
