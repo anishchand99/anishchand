@@ -31,7 +31,7 @@ export const resumeConstant = [
     <div className='highlight'>ABOUT</div>
     <div className='description'>
       {' '}
-      Computer Science Undergraduate at the University of New Orleans. Full
+      Recent Computer Science Undergraduate from the University of New Orleans. Full
       Stack Developer with experience in object-oriented programming and
       problem-solving. Seeking a full-time role for growth and industry
       experience.
