@@ -7,23 +7,41 @@ export const contactConstant = [
   <div className='contact'>
     <div className='displayFlex'>
       <div className='logo'>
-        <a href='https://github.com/anishchand99'>
+        <a
+          href='https://github.com/anishchand99'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           <img alt='logo' className='logoImage' src={github} />
         </a>
       </div>
       <div className='details'>
-        <a href='https://github.com/anishchand99'>github.com/anishchand99</a>
+        <a
+          href='https://github.com/anishchand99'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          github.com/anishchand99
+        </a>
       </div>
     </div>
     <div className='displayFlex'>
       <div className='logo'>
-        <a href='https://www.linkedin.com/in/anish-chand/'>
+        <a
+          href='https://www.linkedin.com/in/anish-chand/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           <img alt='logo' className='logoImage' src={linkedin} />
         </a>
       </div>
       <div className='details'>
         {' '}
-        <a href='https://www.linkedin.com/in/anish-chand/'>
+        <a
+          href='https://www.linkedin.com/in/anish-chand/'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
           linkedin.com/in/anish-chand
         </a>
       </div>

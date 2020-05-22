@@ -117,6 +117,24 @@ export const list = {
     {
       id: 6,
       index: 6,
+      title: 'CHESS AI',
+      descriptionLeft: [
+        'A Chess AI that is buit using minimax algorithm.',
+        'Optimized through the use of alpha beta pruning.',
+        'Written in Java',
+        'Can be visited using the link.',
+      ],
+      image: require('./images/chess.png'),
+      imageDescription: 'AI, Java',
+      backDescription:
+        'This is an app built with primary focus on manual camera controls. It was built using Java for Android and Camera2Basic API.Visit the links for more info.',
+      liveUrl: 'https://github.com/anishchand99/chessbot',
+      githubUrl: 'https://github.com/anishchand99/chessbot',
+      videoUrl: require('./videos/chessAI.mp4'),
+    },
+    {
+      id: 7,
+      index: 7,
       title: 'BACK GEN',
       descriptionLeft: [
         'A Web Application used to dynamically generate background combination.',

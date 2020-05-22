@@ -26,7 +26,10 @@
 }
 .animationText:before {
   content: ' ';
-  animation: animate infinite 8s;
+  /* so that safari can understand */
+  animation-name: animate;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
 }
 @keyframes animate {
   0% {

@@ -8,7 +8,7 @@ body {
   background: linear-gradient(90deg, #ec6367 50%, #ffc0cb 50%);
   /* background-color: #ec6367; */
 }
-@media (max-width: 1000px) {
+@media (max-width: 1000px), (width: 1000px) {
   * {
     background-color: #ec6367;
   }

@@ -9,10 +9,22 @@ export const resumeConstant = [
       <div className='location right-end'>
         {' '}
         <span className='logoImage'>
-          <img alt='logo' className='logoImage' src={github} />
+          <a
+            href='https://github.com/anishchand99'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <img alt='logo' className='logoImage' src={github} />
+          </a>
         </span>
         <span className='logoImage'>
-          <img alt='logo' className='logoImage' src={linkedin} />
+          <a
+            href='https://www.linkedin.com/in/anish-chand/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <img alt='logo' className='logoImage' src={linkedin} />
+          </a>
         </span>
       </div>
     </div>
@@ -37,7 +49,7 @@ export const resumeConstant = [
       </div>
       <div className='date'> Aug 2016 - May 2020</div>
     </div>
-    <div className='sub-head right-end'> GPA: 3.96/4.0</div>
+    <div className='sub-head right-end'> GPA: 3.945/4.0</div>
     {/* experience */}
     <div className='highlight'>EXPERIENCE</div>
     <div className='end-to-end'>
@@ -83,7 +95,7 @@ export const resumeConstant = [
 
   // right side
 
-  <div className='resume'>
+  <div className='resume rightSide'>
     {/* experience */}
     <div className='end-to-end'>
       <div className='sub-head left-end'>Programming Mentor</div>
@@ -105,7 +117,7 @@ export const resumeConstant = [
     </div>
     {/* programming mentor */}
     <div className='end-to-end'>
-      <div className='sub-head left-end'>Programming Mentor</div>
+      <div className='sub-head left-end'>Peer Mentor</div>
       <div className='date right-end'> Aug 2018-Dec 2018</div>
     </div>
     <div className='end-to-end'>
@@ -126,8 +138,17 @@ export const resumeConstant = [
     {/* projects */}
     <div className='highlight'>PROJECTS</div>
     <div className='end-to-end'>
-      <div className='sub-head left-end'>Facial Recognition Webapp</div>
-      <div className='date right-end'> Live Site</div>
+      <div className='sub-head left-end'>Facial Recognition App</div>
+      <div className='date right-end'>
+        {' '}
+        <a
+          href={'https://face-detect-fend.herokuapp.com/'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Live Site
+        </a>
+      </div>
     </div>
     <div className='description'>
       <ul>
@@ -138,8 +159,45 @@ export const resumeConstant = [
       </ul>
     </div>
     <div className='end-to-end'>
+      <div className='sub-head left-end'>JobTrack App</div>
+      <div className='date right-end'>
+        {' '}
+        <a
+          href={'https://job-track-app2020.herokuapp.com/'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Live Site
+        </a>
+      </div>
+    </div>
+    <div className='description'>
+      <ul>
+        <li>
+          Developed a Full Stack web app to keep track of job applications
+        </li>
+        <li>
+          Ability to create seperate lists for different types of applications.
+        </li>
+        <li>
+          Ability to visualize the statistics of job applications including
+          approved, pending, removed and total applicaitions per day.
+        </li>
+        <li>Built using React, Node.js, Express and PostgreSQL.</li>
+      </ul>
+    </div>
+    <div className='end-to-end'>
       <div className='sub-head left-end'>PathFinding Visualizer</div>
-      <div className='date right-end'> Live Site</div>
+      <div className='date right-end'>
+        {' '}
+        <a
+          href={'https://anishchand99.github.io/pathfinder/'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Live Site
+        </a>
+      </div>
     </div>
     <div className='description'>
       <ul>
@@ -152,28 +210,22 @@ export const resumeConstant = [
     </div>
     <div className='end-to-end'>
       <div className='sub-head left-end'>AI Chess Bot</div>
-      <div className='date right-end'> Live Site</div>
+      <div className='date right-end'>
+        {' '}
+        <a
+          href={'https://github.com/anishchand99/chessbot'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Live Site
+        </a>
+      </div>
     </div>
     <div className='description'>
       <ul>
         <li>
           A Java chess bot implementing the minimax algorithm with alpha beta
           pruning.
-        </li>
-      </ul>
-    </div>
-    <div className='end-to-end'>
-      <div className='sub-head left-end'>JobHunting Platform</div>
-      <div className='date right-end'> Live Site</div>
-    </div>
-    <div className='description'>
-      <ul>
-        <li>
-          Developed a Java applet that can search specific job postings by
-          executing SQL queries in JDBC.
-        </li>
-        <li>
-          Built as a part of class project to learn about database design.
         </li>
       </ul>
     </div>

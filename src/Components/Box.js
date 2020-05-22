@@ -22,6 +22,10 @@ class Box extends Component {
         <div className='card'>
           <div className='front'>
             <div className='image-container'>
+              <div className='flip-message'>
+                Hover to Flip the Card for Details
+              </div>
+
               <img className='image' src={property.image} alt='project' />
             </div>
             <div className='text'>{property.imageDescription}</div>

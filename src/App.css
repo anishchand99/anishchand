@@ -112,7 +112,7 @@
   z-index: -1;
   object-fit: cover;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1000px), (width: 1000px) {
   .body-container {
     display: flex;
     flex-direction: column;
