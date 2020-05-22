@@ -65,6 +65,7 @@ export const list = {
       descriptionLeft: [
         'A Web Application built to visualize pathfinging algorithms.',
         'Implementation of Pathfinding algorithms like Dijkstra, A* search, BFS, and DFS.',
+        'Ability to add walls and adjust speed.',	
         'Built using React and CSS animations.',
         'Can be visited using the link.',
       ],

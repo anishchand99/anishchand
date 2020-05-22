@@ -177,7 +177,7 @@ export const resumeConstant = [
           Developed a Full Stack web app to keep track of job applications
         </li>
         <li>
-          Ability to create seperate lists for different types of applications.
+          Ability to create separate lists for different types of applications.
         </li>
         <li>
           Ability to visualize the statistics of job applications including
