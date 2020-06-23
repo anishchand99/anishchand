@@ -59,7 +59,7 @@ export const blogConstant = [
                 Creating a Job Application Tracker in PERN stack
               </h3>
               <small> Posted by Anish Chand. 23 Mar. 2020</small>
-              <p>Generate trivia questions using external API</p>
+              <p>Creating a full stack applicaiton tracking app</p>
               <u>Read More...</u>
             </a>
             <hr />

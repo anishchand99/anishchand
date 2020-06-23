@@ -40,9 +40,11 @@
   height: 75%;
 }
 .flip-message {
-  text-shadow: -0.5px 0 rgb(75, 2, 124), 0 0.5px rgb(75, 2, 124),
-    0.5px 0 rgb(75, 2, 124), 0 -0.5px rgb(75, 2, 124);
-  letter-spacing: 2px;
+  color: #000;
+  font-weight: bolder;
+  text-shadow: -0.5px 0 rgb(255, 255, 255), 0 0.5px rgb(255, 255, 255),
+    0.5px 0 rgb(255, 255, 255), 0 -0.5px rgb(255, 255, 255);
+  letter-spacing: 3px;
 }
 .box-container .card .front .image-container .image {
   width: 100%;
@@ -53,9 +55,10 @@
   width: 5%;
   writing-mode: vertical-lr;
   text-orientation: mixed;
-  text-shadow: -0.5px 0 rgb(75, 2, 124), 0 0.5px rgb(75, 2, 124),
-    0.5px 0 rgb(75, 2, 124), 0 -0.5px rgb(75, 2, 124);
-
+  color: #000;
+  font-weight: bolder;
+  text-shadow: -0.5px 0 rgb(255, 255, 255), 0 0.5px rgb(255, 255, 255),
+    0.5px 0 rgb(255, 255, 255), 0 -0.5px rgb(255, 255, 255);
   letter-spacing: 1px;
 }
 .box-container .card .back {

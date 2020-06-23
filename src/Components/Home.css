@@ -30,6 +30,26 @@
   animation-name: animate;
   animation-duration: 8s;
   animation-iteration-count: infinite;
+  -webkit-animation-name: animate;
+  -webkit-animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes animate {
+  0% {
+    content: 'Building Things!';
+  }
+  25% {
+    content: 'Problem Solving!';
+  }
+  50% {
+    content: 'Building Webapps!';
+  }
+  75% {
+    content: 'Tech World & Economics!';
+  }
+  100% {
+    content: 'Building Webapps!';
+  }
 }
 @keyframes animate {
   0% {
