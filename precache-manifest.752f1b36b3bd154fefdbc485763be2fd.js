@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29c2162c2f63ef73382868acb178e543",
+    "revision": "0688d32b7ab321e4f9aa642cea3bea3c",
     "url": "/index.html"
   },
   {
-    "revision": "3fcddbb773a1dcafc4b0",
+    "revision": "2dff0795fdad470097d3",
     "url": "/static/css/main.0bf5f7b3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.b45437a7.chunk.js"
   },
   {
-    "revision": "3fcddbb773a1dcafc4b0",
-    "url": "/static/js/main.1d4d4752.chunk.js"
+    "revision": "2dff0795fdad470097d3",
+    "url": "/static/js/main.ada5c7e6.chunk.js"
   },
   {
     "revision": "05129d9571d833ef1980",
@@ -68,8 +68,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/chessAI.1892c79c.mp4"
   },
   {
-    "revision": "f8d67a5eba10099bf461dcaf0091f102",
-    "url": "/static/media/faceDetect.f8d67a5e.mp4"
+    "revision": "93cd5204b57dee251e4b55617307b289",
+    "url": "/static/media/faceDetect.93cd5204.mp4"
   },
   {
     "revision": "a2546a1e1e73962a22ceb10e90ac1eea",
